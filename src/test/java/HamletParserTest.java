@@ -21,73 +21,73 @@ public class HamletParserTest {
 
     @Test
     public void testChangeHamletToLeon() {
+        //given
+        String expected = "LEON";
+        List<Integer> indices = hamletParser.findHamletIndices();
+
+        //when
+        String altered = hamletParser.changeHamletToLeon();
+        int leonIndex = indices.get(0);
+
+        //then
+        Assert.assertFalse(hamletText.equals(altered));
+        String actual = altered.substring(leonIndex, leonIndex+4);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testChangeHoratioToTariq() {
         //given
         String expected = "TARIQ";
+        List<Integer> indices = hamletParser.findHoratio();
 
         //when
-        hamletParser.changeHoratioToTariq();
-        List<Integer> indices = hamletParser.findTariq();
+        String altered = hamletParser.changeHoratioToTariq();
         int tarIndex = indices.get(0);
 
         //then
-        String actual = hamletText.substring(tarIndex, tarIndex+6);
+        Assert.assertFalse(hamletText.equals(altered));
+        String actual = altered.substring(tarIndex, tarIndex+5);
         Assert.assertEquals(expected, actual);
 
     }
 
     @Test
-    public void testFindHoratio() {
-            //given
-            String text = hamletText;
-            String expected = "HORATIO";
-//            String[] splitText = hamletText.split("\n");
-//            List<String> horations = Arrays.stream(splitText)
-//                .filter(val-> val.matches("HORATIO"))
-//                .collect(Collectors.toList());
+    public void testFindHoratioIndices() {
+        //given
+        String expected = "HORATIO";
 
 
-            //when
-            List<Integer> indices = hamletParser.findHoratio();
-            //Assert.assertEquals(horations.size(), indices.size());
-            int horIndex = indices.get(77);
+        //when
+        List<Integer> indices = hamletParser.findHoratio();
+        int horIndex = indices.get(77);
 
-            //then
-            String actual = hamletText.substring(horIndex, horIndex+7);
-            Assert.assertEquals(expected, actual);
-
-
-
-
-
-
-//        //given
-//        String[] splitText = hamletText.split("\n");
-//        int horatioCount = 0;
-//
-//        //when
-//
-//
-//        for (String s : splitText) {
-//            if (s.matches("(Horatio)|(HORATIO)")){
-//                horatioCount++;
-//            }
-//        }
-//
-//        //then
-//        int actual = horations.size();
-//        int expected = horatioCount;
-//        Assert.assertEquals(expected, actual);
-
-
-
+        //then
+        String actual = hamletText.substring(horIndex, horIndex + 7);
+        Assert.assertEquals(expected, actual);
 
     }
 
     @Test
+    public void findHoratioStrings(){
+        //given
+        List<String> find = hamletParser.findHorations();
+        List<Integer> indices = hamletParser.findHoratio();
+
+        Assert.assertEquals(find.size(), indices.size());
+    }
+
+
+    @Test
     public void testFindHamlet() {
+        //given
+        String expected = "HAMLET";
+        List<String> hamlets = hamletParser.findHamlet();
+
+        //when
+        String actual = hamlets.get(0).toUpperCase();
+
+        //then
+        Assert.assertEquals(expected, actual);
     }
 }
