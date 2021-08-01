@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -8,6 +9,23 @@ import java.util.regex.Pattern;
  * Created by thook on 10/7/15.
  */
 public class HamletParser {
+
+
+    public static void main(String[] args) {
+        HamletParser demo = new HamletParser();
+        demo.changeFileHoratioToTariq();
+        demo.changeFileHamletToLeon();
+
+
+        try {
+            FileWriter editor = new FileWriter("hamletremix.txt");
+            editor.write(demo.getHamletData());
+            editor.close();
+
+        } catch (IOException e) {
+            System.out.println("*blank stares* LINE!");
+        }
+    }
 
     private String hamletData;
 
@@ -65,7 +83,6 @@ public class HamletParser {
 
         }
         return horations;
-
 
     }
 
@@ -135,6 +152,21 @@ public class HamletParser {
         return indices;
     }
 
+    public synchronized void changeFileHoratioToTariq() {
+        String replacement = "TARIQ";
+        Pattern pattern = Pattern.compile("horatio", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(hamletData);
+
+        this.hamletData = matcher.replaceAll(replacement);
+    }
+
+    public synchronized void changeFileHamletToLeon() {
+        String replacement = "LEON";
+        Pattern pattern = Pattern.compile("hamlet", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(hamletData);
+
+        this.hamletData = matcher.replaceAll(replacement);
+    }
 
 }
 

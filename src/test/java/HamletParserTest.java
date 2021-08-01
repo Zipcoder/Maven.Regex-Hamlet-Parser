@@ -46,7 +46,7 @@ public class HamletParserTest {
         int tarIndex = indices.get(0);
 
         //then
-        Assert.assertFalse(hamletText.equals(altered));
+        assertNotEquals(hamletText, altered);
         String actual = altered.substring(tarIndex, tarIndex+5);
         Assert.assertEquals(expected, actual);
 
