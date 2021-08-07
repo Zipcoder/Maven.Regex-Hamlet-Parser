@@ -24,7 +24,7 @@ public class HamletParserTest {
         String result = matcher.replaceAll("Leon");
 
         System.out.println(result);
-        Boolean hasOldName = result.indexOf("Hamlet") != -1;
+        Boolean hasOldName = result.contains("Hamlet");
 
         Assert.assertFalse(hasOldName);
     }
@@ -36,7 +36,7 @@ public class HamletParserTest {
         String result = matcher.replaceAll("Tariq");
 
         System.out.println(result);
-        Boolean hasOldName = result.indexOf("Horatio") != -1;
+        Boolean hasOldName = result.contains("Horatio");
 
         Assert.assertFalse(hasOldName);
     }
