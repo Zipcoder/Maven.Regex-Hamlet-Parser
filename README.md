@@ -1,19 +1,8 @@
-# REGEX
+# Regular Expressions Lab - Hamlet Parser
 
-## Directions
+## Instructions:
 
-Make a project that will go through the hamlet file provided and using regex replace every instance of "Hamlet" with "Leon" and every instance of Horatio with "Tariq".
-
-Beginning with tests, you are to program all the steps it will take to complete that process. Some tests have been stubbed out for you but these will not cover all the methods you should have in your project.
-
-*IMPORTANT*: You are not to use String Utilities to simply replace words. You must use Pattern and Matcher.
-
-
-Regular Expressions Lab - Text Replacement
-
-Instructions:
-
-In this project, your task is to create a Java program that processes the provided "Hamlet" text file using regular expressions. The goal is to replace every occurrence of "Hamlet" with "Leon" and every occurrence of "Horatio" with "Tariq." This process should be achieved exclusively using the Pattern and Matcher classes, without relying on String Utilities for direct word replacement.
+In this project, your task is to create a Java program that processes the provided "Hamlet" text file using regular expressions. The goal is to replace every occurrence of "Hamlet" with "Leon" and every occurrence of "Horatio" with "Tariq." **This process should be achieved exclusively using the Pattern and Matcher classes, without relying on String Utilities for direct word replacement.**
 
 ## Step 1: Set Up the Project
 
