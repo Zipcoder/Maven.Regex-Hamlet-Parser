@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Formatter;
 import java.util.Scanner;
 
 /**
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class HamletParser {
 
     private String hamletData;
+    private Formatter formatter;
 
     public HamletParser(){
         this.hamletData = loadFile();
@@ -31,6 +33,7 @@ public class HamletParser {
 
         return result.toString();
     }
+
 
     public String getHamletData(){
         return hamletData;
