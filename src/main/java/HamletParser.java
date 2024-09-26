@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by thook on 10/7/15.
@@ -34,6 +36,34 @@ public class HamletParser {
 
     public String getHamletData(){
         return hamletData;
+    }
+
+    public static String changeHamletToLeon(String input){
+        Pattern pattern=Pattern.compile("Hamlet",Pattern.CASE_INSENSITIVE);
+        Matcher matcher=pattern.matcher(input);
+        return matcher.replaceAll("Leon");
+    }
+
+    public static String changeHoratioToTariq(String input){
+        Pattern pattern=Pattern.compile("Horatio",Pattern.CASE_INSENSITIVE);
+        Matcher matcher=pattern.matcher(input);
+        return matcher.replaceAll("Tariq");
+    }
+
+    public static boolean findHoratio(String input){
+        Pattern pattern=Pattern.compile("Horatio",Pattern.CASE_INSENSITIVE);
+        Matcher matcher= pattern.matcher(input);
+        if(matcher.find())
+            return true;
+        return false;
+    }
+
+    public static boolean findHamlet(String input){
+        Pattern pattern=Pattern.compile("Hamlet");
+        Matcher matcher= pattern.matcher(input);
+        if(matcher.find())
+            return true;
+        return false;
     }
 
 }
